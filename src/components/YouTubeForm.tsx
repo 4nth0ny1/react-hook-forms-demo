@@ -1,4 +1,3 @@
-import React from "react";
 import { useForm } from "react-hook-form";
 import { DevTool } from "@hookform/devtools";
 
@@ -11,7 +10,13 @@ type FormValues = {
 };
 
 const YouTubeForm = () => {
-  const form = useForm<FormValues>();
+  const form = useForm<FormValues>({
+    defaultValues: {
+      username: "Batman",
+      email: "",
+      channel: "",
+    },
+  });
   const { register, control, handleSubmit, formState } = form;
   const { errors } = formState;
 
